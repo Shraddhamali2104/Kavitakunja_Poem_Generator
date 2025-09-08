@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+
+class SalesLayoutWrapper extends StatelessWidget {
+  const SalesLayoutWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color(0xFFF5F5F5),
+      child: const SalesLayout(),
+    );
+  }
+}
+
+class SalesLayout extends StatelessWidget {
+  const SalesLayout({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ShaderMask(
+            shaderCallback: (Rect bounds) {
+              return const LinearGradient(
+                colors: [
+                  Color(0xFF43cea2), // green
+                  Color(0xFF185a9d), // blue
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ).createShader(bounds);
+            },
+            child: const Text(
+              'Welcome to Sales',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Roboto',
+                letterSpacing: 2,
+                color: Colors.white,
+                shadows: [
+                  Shadow(
+                    blurRadius: 12,
+                    color: Colors.black26,
+                    offset: Offset(0, 4),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          const Text(
+            'Your smart sales dashboard',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.black54,
+              fontStyle: FontStyle.italic,
+              letterSpacing: 1.2,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+} 
